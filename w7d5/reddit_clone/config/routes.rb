@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     resources :subs, only: [:edit, :update]
   end
 
-  resources :subs, only: [:create, :index, :new, :show]
-  
+  resources :subs, only: [:create, :index, :new, :show] do
+    resources :posts
+  end
+
 end

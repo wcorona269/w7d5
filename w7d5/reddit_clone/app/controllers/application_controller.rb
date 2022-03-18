@@ -26,4 +26,9 @@ class ApplicationController < ActionController::Base
     def is_moderator?
         current_user == User.find(@sub.moderator_id)
     end
+
+    def is_author?
+        current_user == User.find(@post.author_id)
+    end
+
 end
