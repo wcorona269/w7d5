@@ -237,3 +237,166 @@ Processing by UsersController#new as HTML
 Completed 200 OK in 134ms (Views: 76.9ms | ActiveRecord: 28.9ms)
 
 
+Started GET "/session/new" for ::1 at 2022-03-18 15:32:11 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 50ms (Views: 49.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2022-03-18 15:33:49 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 62ms (Views: 61.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2022-03-18 15:33:59 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 58ms (Views: 57.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2022-03-18 15:36:12 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 83ms (Views: 79.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2022-03-18 15:40:43 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 48ms (Views: 47.3ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started GET "/users/new" for ::1 at 2022-03-18 15:41:08 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 60ms (Views: 52.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2022-03-18 15:41:12 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"TRPDlbYgsvhXxeSP8ixFFF7SBTGLgU5I/YMD953SePFDayXRFO7oLHBaerGnbtZTTHaH0Pdn7vCXYXZ11eGhRQ==", "user"=>{"username"=>"will", "password"=>"[FILTERED]"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:9
+  [1m[36mUser Exists (4.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "will"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "F4wXSIeSxro7MrE6wIbWrg"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9
+  [1m[36mUser Create (1.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "will"], ["password_digest", "$2a$12$jujSW7ItQBsPxo86PNP7.Osw3TFdHJgLoZjqfIaKUMEb3wwt4PguS"], ["session_token", "F4wXSIeSxro7MrE6wIbWrg"], ["created_at", "2022-03-18 19:41:12.948041"], ["updated_at", "2022-03-18 19:41:12.948041"]]
+  ↳ app/controllers/users_controller.rb:9
+  [1m[35m (3.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:9
+  [1m[35m (1.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:39
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "will"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:39
+  [1m[36mUser Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "-Tdr3HQQE5zdrficj441PQ"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:39
+  [1m[36mUser Update (3.6ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "-Tdr3HQQE5zdrficj441PQ"], ["updated_at", "2022-03-18 19:41:12.961919"], ["id", 2]]
+  ↳ app/models/user.rb:39
+  [1m[35m (5.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:39
+Redirected to http://localhost:3000/subs
+Completed 302 Found in 338ms (ActiveRecord: 23.3ms)
+
+
+Started GET "/subs" for ::1 at 2022-03-18 15:41:12 -0400
+Processing by SubsController#index as HTML
+Completed 406 Not Acceptable in 224ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::UnknownFormat - SubsController#index is missing a template for this request format and variant.
+request.formats: ["text/html"]
+request.variant: []
+NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.:
+
+Started POST "/__better_errors/bd5654e7520c5051/variables" for ::1 at 2022-03-18 15:41:13 -0400
+  [1m[36mSub Load (3.0ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/appacademystudent/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.7/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Sub Load (0.0ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/appacademystudent/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.7/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started GET "/session/new" for ::1 at 2022-03-18 15:41:24 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 59ms (Views: 57.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2022-03-18 15:41:30 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"iHwhf7ryS4NCs8F1USWtYE8gAerQTERRCiEbpXi3a/6GBMc7GDwRV2UsX0sEZz4nXYSDC6yq5Olgw24nMISySg==", "user"=>{"username"=>"will", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (9.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (will) LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 9.9ms)
+
+
+
+ActiveRecord::StatementInvalid - PG::UndefinedColumn: ERROR:  column "will" does not exist
+LINE 1: SELECT  "users".* FROM "users" WHERE (will) LIMIT $1
+                                              ^
+: SELECT  "users".* FROM "users" WHERE (will) LIMIT $1:
+  app/controllers/sessions_controller.rb:10:in `create'
+
+Started POST "/__better_errors/a0983cf18bfb9524/variables" for ::1 at 2022-03-18 15:41:31 -0400
+Started POST "/__better_errors/a0983cf18bfb9524/eval" for ::1 at 2022-03-18 15:41:40 -0400
+Started POST "/session" for ::1 at 2022-03-18 15:43:15 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"iHwhf7ryS4NCs8F1USWtYE8gAerQTERRCiEbpXi3a/6GBMc7GDwRV2UsX0sEZz4nXYSDC6yq5Olgw24nMISySg==", "user"=>{"username"=>"will", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "will"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:14
+Completed 500 Internal Server Error in 479ms (ActiveRecord: 12.5ms)
+
+
+
+NoMethodError - undefined method `login!' for #<SessionsController:0x00007fa2100de828>
+Did you mean?  login:
+  app/controllers/sessions_controller.rb:12:in `create'
+
+Started POST "/__better_errors/2a6213618cde53da/variables" for ::1 at 2022-03-18 15:43:16 -0400
+Started POST "/session" for ::1 at 2022-03-18 15:44:24 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"iHwhf7ryS4NCs8F1USWtYE8gAerQTERRCiEbpXi3a/6GBMc7GDwRV2UsX0sEZz4nXYSDC6yq5Olgw24nMISySg==", "user"=>{"username"=>"will", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "will"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:14
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:39
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "will"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:39
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "yiscA25chYtdfgZmSqURGg"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:39
+  [1m[36mUser Update (1.9ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "yiscA25chYtdfgZmSqURGg"], ["updated_at", "2022-03-18 19:44:24.567783"], ["id", 2]]
+  ↳ app/models/user.rb:39
+  [1m[35m (4.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:39
+No template found for SessionsController#create, rendering head :no_content
+Completed 204 No Content in 573ms (ActiveRecord: 16.2ms)
+
+
+Started POST "/session" for ::1 at 2022-03-18 15:44:29 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"iHwhf7ryS4NCs8F1USWtYE8gAerQTERRCiEbpXi3a/6GBMc7GDwRV2UsX0sEZz4nXYSDC6yq5Olgw24nMISySg==", "user"=>{"username"=>"will", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "will"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:14
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:39
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "will"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:39
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "WydGD9kjyfO6uv7ERUkFJA"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:39
+  [1m[36mUser Update (1.1ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "WydGD9kjyfO6uv7ERUkFJA"], ["updated_at", "2022-03-18 19:44:30.103095"], ["id", 2]]
+  ↳ app/models/user.rb:39
+  [1m[35m (3.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:39
+No template found for SessionsController#create, rendering head :no_content
+Completed 204 No Content in 547ms (ActiveRecord: 6.8ms)
+
+
