@@ -1,4 +1,7 @@
 class SubsController < ApplicationController
+
+    before_action :is_moderator?, only: [:edit, :update]
+
     def new
         @sub = Sub.new
     end
@@ -23,6 +26,7 @@ class SubsController < ApplicationController
 
     def update
         @sub = Sub.find(params[:id])
+
         if @sub.update(sub_params)
             redirect_to sub_url(@sub)
         else

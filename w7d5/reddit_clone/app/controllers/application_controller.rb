@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
 
+    helper_method :current_user, :logged_in?
+
     def current_user
         @current_user ||= User.find_by(session: session[:session_token])
     end
@@ -19,5 +21,9 @@ class ApplicationController < ActionController::Base
     def logout
         current_user.reset_session_token!
         session[:session_token] = nil
+    end
+
+    def is_moderator?
+        current_user == User.find(@sub.moderator_id)
     end
 end
