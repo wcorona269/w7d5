@@ -1,9 +1,9 @@
 class ApplicationController < ActionController::Base
 
-    helper_method :current_user, :logged_in?
+    helper_method :current_user, :logged_in?, :is_moderator?
 
     def current_user
-        @current_user ||= User.find_by(session: session[:session_token])
+        @current_user ||= User.find_by(session_token: session[:session_token])
     end
 
     def require_logged_in

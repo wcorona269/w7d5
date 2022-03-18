@@ -10,6 +10,11 @@ class SubsController < ApplicationController
         @subs = Sub.all
     end
 
+    def show
+        @sub = Sub.find(params[:id])
+        @posts = Post.all.where(sub_id: params[:id])
+    end
+
     def create
         @sub = Sub.new(sub_params)
         if @sub.save
